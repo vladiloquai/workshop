@@ -1,45 +1,33 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role %>
-  </div>
-  <div class="field">
-    <%= f.label :client_id %><br />
-    <%= f.text_field :client_id %>
-  </div>
-  <div class="field">
-    <%= f.label :analyst_id %><br />
-    <%= f.number_field :analyst_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= simple_form_for @user, html: {class: "form-horizontal well"} do |f| %>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <fieldset>
+        <%= f.input :name %>
+        <%= f.input :lastname %>
+        <%= f.input :email %> 
+        <%= f.input :role do%>                        
+            <%= f.select :role, User::ROLES, {:selected =>  @current_user.role} %>
+        <% end %>
+        <%#= f.input :phone %>
+        <%#= f.input :cellphone %>
+        <%#= f.input :address %>
+        <%#= date_field f, :birthdate%>
+        <%#= f.input :marital_status, collection: @user.marital_status_enum %>
+        <%#= f.input :active %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+        <div class="form-actions">
+            <%= f.button    :submit, 
+                            action_name == 'new' ? t('actions.new') : t('actions.edit'),
+                            class: "btn btn-info"%>     
+        </div>          
+    </fieldset>
+<%end%>

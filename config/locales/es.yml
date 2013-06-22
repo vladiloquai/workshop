@@ -20,6 +20,8 @@ es:
     show: "Ver"
     edit: "Editar"
     destroy: "Eliminar"
+    back: "Volver"
+    new: "Nuevo"
   activerecord:
     models:
       user: "User"
@@ -37,3 +39,4 @@ es:
   users:
     actions:
       new: "Nuevo Usuario"
+      edit: "Editar Usuario"
