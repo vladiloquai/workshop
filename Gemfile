@@ -20,7 +20,27 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  gem 'shoulda'
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
+group :test, :development do
+	gem "factory_girl_rails", "~> 4.0"
+  gem "rspec-rails", "~> 2.0"
+end
+
 gem 'jquery-rails'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem 'simple_form'
+gem 'devise'
+gem "cancan"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
