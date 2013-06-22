@@ -1,0 +1,37 @@
+es:
+  time:
+    formats:
+      long_ordinal: "%Y-%m-%d"
+  roles:
+    admin: "Administrador"
+  titles:
+    app: "Mesa de Servicios"
+    sign_in: "Iniciar Sesion"
+    incidents: "Incidentes"
+    users: "Usuarios"
+  messages:
+    are_you_sure: "¿Esta seguro?"
+    invalid: "no es valido"
+  menus:
+    users: "Usuarios"
+  actions:
+    log_in: "Ingrese"
+    show: "Ver"
+    edit: "Editar"
+    destroy: "Eliminar"
+  activerecord:
+    models:
+      user: "User"
+    attributes:
+      user:
+        email: "Email"
+        name: "Nombre"
+        lastname: "Apellidos"
+        remember_me: "Recordarme"
+        password: "Contraseña"
+  incidents:
+    actions:
+      new: "Nuevo Incidente"
+  users:
+    actions:
+      new: "Nuevo Usuario"
