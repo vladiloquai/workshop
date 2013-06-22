@@ -12,10 +12,11 @@ es:
   messages:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
+    forgot_password: "¿Olvidaste tu Contraseña?"
   menus:
     users: "Usuarios"
   actions:
-    log_in: "Ingrese"
+    log_in: "Ingresar"
     show: "Ver"
     edit: "Editar"
     destroy: "Eliminar"
