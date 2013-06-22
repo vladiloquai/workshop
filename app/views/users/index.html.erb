@@ -1,14 +1,11 @@
-<h1>Listing users</h1>
+<h1><%= t('titles.users')%></h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Name</th>
-    <th>Lastname</th>
-    <th>Email</th>
-    <th>Email</th>
-    <th>Role</th>
-    <th>Client</th>
-    <th>Analyst</th>
+    <th><%= t('activerecord.attributes.user.name')%></th>
+    <th><%= t('activerecord.attributes.user.lastname')%></th>
+    <th><%= t('activerecord.attributes.user.email')%></th>
+    <th><%= t('activerecord.attributes.user.role')%></th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,17 +16,14 @@
     <td><%= user.name %></td>
     <td><%= user.lastname %></td>
     <td><%= user.email %></td>
-    <td><%= user.email %></td>
     <td><%= user.role %></td>
-    <td><%= user.client_id %></td>
-    <td><%= user.analyst_id %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to t('actions.show'), user %></td>
+    <td><%= link_to t('actions.edit'), edit_user_path(user) %></td>
+    <td><%= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('messages.are_you_sure')} %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to t('users.actions.new'), new_user_path %>

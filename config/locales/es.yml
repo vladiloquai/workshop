@@ -26,6 +26,7 @@ es:
       user:
         email: "Email"
         name: "Nombre"
+        role: "Tipo"
         lastname: "Apellidos"
         remember_me: "Recordarme"
         password: "Contraseña"
