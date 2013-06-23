@@ -1,20 +1,10 @@
 <%= simple_form_for @user, html: {class: "form-horizontal well"} do |f| %>
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-            <ul>
-                <% @user.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
     <fieldset>
         <%= f.input :name %>
         <%= f.input :lastname %>
         <%= f.input :email %> 
         <%= f.input :role do%>                        
-            <%= f.select :role, User::ROLES, {:selected =>  @current_user.role} %>
+            <%= f.select :role, User::ROLES, {:selected => @user.role} %>
         <% end %>
         <%#= f.input :phone %>
         <%#= f.input :cellphone %>

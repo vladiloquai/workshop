@@ -13,6 +13,7 @@ es:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
     forgot_password: "¿Olvidaste tu Contraseña?"
+    not_blank: "no debe estar en blanco"
   menus:
     users: "Usuarios"
   actions:
@@ -23,6 +24,15 @@ es:
     back: "Volver"
     new: "Nuevo"
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "no debe estar en blanco"
+              invalid: "no es válido"
+            password:
+              blank: "no debe estar en blanco"
     models:
       user: "User"
     attributes:
