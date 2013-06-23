@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
             format: { with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, 
                       message: I18n.t('messages.invalid')}
 
+  # Incidents
+  has_many :incident_users
+  has_many :incidents, :through => :incident_users
+
+  belongs_to :client
+  belongs_to :analyst
+
   # Roles Configuration
   ROLES = %w[client analyst admin]
 

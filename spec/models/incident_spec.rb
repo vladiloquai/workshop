@@ -10,10 +10,6 @@ describe Incident do
   	should respond_to :description
   end
 
-  it "has a closed at field" do
-  	should respond_to :closed_at
-  end
-
   #associations
   it "has many incident_users" do
     should have_many :incident_users
