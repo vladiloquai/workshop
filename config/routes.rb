@@ -4,5 +4,5 @@ Workshop::Application.routes.draw do
   resources :users
   resources :incidents
 
-  root :to => 'users#index'
+  root :to => 'incidents#index'
 end

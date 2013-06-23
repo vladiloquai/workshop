@@ -1,4 +1,8 @@
 es:
+  devise:
+    sessions:
+      user:
+        signed_in: "Bienvenido a Mesa de Servicios"
   time:
     formats:
       long_ordinal: "%Y-%m-%d"
@@ -23,6 +27,7 @@ es:
     destroy: "Eliminar"
     back: "Volver"
     new: "Nuevo"
+    sign_out: "Cerrar Sesión"
   activerecord:
     errors:
       models:
