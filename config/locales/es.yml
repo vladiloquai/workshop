@@ -16,6 +16,11 @@ es:
       long_ordinal: "%Y-%m-%d"
   roles:
     admin: "Administrador"
+  contact_methods:
+    email: "correo electrónico"
+    phone: "telefono"
+    sms: "sms"
+    web: "web"
   titles:
     app: "Mesa de Servicios"
     sign_in: "Iniciar Sesion"
@@ -28,6 +33,7 @@ es:
     invalid: "no es valido"
     forgot_password: "¿Olvidó su Contraseña?"
     not_blank: "no puede estar en blanco"
+    select_an_option: "Seleccione una opción ..."
   menus:
     users: "Usuarios"
   actions:
@@ -62,6 +68,8 @@ es:
       incident:
         title: "Titulo"
         description: "Descripción"
+        contact_method_id: "Método de contacto"
+        possible_solution: "Posible solución"
   incidents:
     actions:
       new: "Nuevo Incidente"
