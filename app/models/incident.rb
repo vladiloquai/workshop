@@ -12,4 +12,8 @@ class Incident < ActiveRecord::Base
   # Users
   has_many :incident_users
   has_many :users, through: :incident_users
+
+  # Categories
+  has_many :incident_categories
+  has_many :categories, through: :incident_categories
 end
