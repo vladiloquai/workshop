@@ -32,3 +32,11 @@ body {
 .container p {
   padding: 3px 9px;
 }
+
+.container .form-horizontal .control-label {
+  /*width: 200px;
+  padding-left: 20px;
+  text-align: left;*/
+  font-weight: bold;
+  color:#585858;
+}
