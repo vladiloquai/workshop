@@ -1,6 +1,6 @@
 class Incident < ActiveRecord::Base
   attr_accessible :description, :title
-  validates_presence_of :title, :description
+  validates_presence_of :title, :description, message: I18n.t('messages.not_blank')
 
   # Users
   has_many :incident_users

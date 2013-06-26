@@ -1,5 +1,6 @@
 <%= simple_form_for @user, html: {class: "form-horizontal well"} do |f| %>
-    <fieldset>
+    <%= f.error_notification %>
+    <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :lastname %>
         <%= f.input :email %> 
@@ -14,10 +15,12 @@
         <%#= f.input :active %>
         <%= f.input :password %>
         <%= f.input :password_confirmation %>
-        <div class="form-actions">
-            <%= f.button    :submit, 
-                            action_name == 'new' ? t('actions.new') : t('actions.edit'),
-                            class: "btn btn-info"%>     
-        </div>          
-    </fieldset>
+        
+    </div>
+
+    <div class="form-actions">
+        <%= f.button    :submit, 
+                        action_name == 'new' ? t('actions.new') : t('actions.edit'),
+                        class: "btn btn-info"%>     
+    </div>  
 <%end%>

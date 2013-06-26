@@ -1,25 +1,33 @@
-<h1>Listing incidents</h1>
+<h1><%= t('titles.incidents')%></h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped">
+    <thead>
+        <th><%=t('activerecord.attributes.incident.title')%></th>
+        <th><%=t('activerecord.attributes.incident.description')%></th>
+        <th><%=t('titles.actions')%></th>
+    </thead>
 
-<% @incidents.each do |incident| %>
-  <tr>
-    <td><%= incident.title %></td>
-    <td><%= incident.description %></td>
-    <td><%= link_to 'Show', incident %></td>
-    <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-    <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <% @incidents.each do |incident| %>
+    <tr>
+        <td><%= incident.title %></td>
+        <td><%= incident.description %></td>
+        <td>
+            <%= link_to incident do %>
+                <i class='icon-eye-open'></i>
+            <% end %>
+
+            <%= link_to edit_incident_path(incident) do %>
+                <i class='icon-pencil'></i>
+            <% end %>
+
+            <%= link_to incident, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
+                <i class='icon-trash'></i>
+            <% end %>
+        </td>
+    </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Incident', new_incident_path %>
+<%= link_to t('incidents.actions.new'), new_incident_path %>

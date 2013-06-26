@@ -1,6 +1,5 @@
 class IncidentsController < ApplicationController
-  # GET /incidents
-  # GET /incidents.json
+  authorize_resource
   def index
     @incidents = Incident.all
 
@@ -10,8 +9,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/1
-  # GET /incidents/1.json
   def show
     @incident = Incident.find(params[:id])
 
@@ -21,8 +18,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/new
-  # GET /incidents/new.json
   def new
     @incident = Incident.new
 
@@ -32,13 +27,10 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/1/edit
   def edit
     @incident = Incident.find(params[:id])
   end
 
-  # POST /incidents
-  # POST /incidents.json
   def create
     @incident = Incident.new(params[:incident])
 
@@ -53,8 +45,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # PUT /incidents/1
-  # PUT /incidents/1.json
   def update
     @incident = Incident.find(params[:id])
 
@@ -69,8 +59,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # DELETE /incidents/1
-  # DELETE /incidents/1.json
   def destroy
     @incident = Incident.find(params[:id])
     @incident.destroy

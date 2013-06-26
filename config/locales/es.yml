@@ -1,8 +1,16 @@
 es:
+  simple_form:
+    error_notification:
+      default_message: "Se han producido los siguientes errores:"
   devise:
     sessions:
       user:
         signed_in: "Bienvenido a Mesa de Servicios"
+        signed_out: "Sesión Finalizada"
+    failure:
+      user:
+        not_found_in_database: "Usuario no encontrado"
+        invalid: "Contraseña erronea"
   time:
     formats:
       long_ordinal: "%Y-%m-%d"
@@ -11,13 +19,15 @@ es:
   titles:
     app: "Mesa de Servicios"
     sign_in: "Iniciar Sesion"
+    actions: "Acciones"
     incidents: "Incidentes"
     users: "Usuarios"
+    footer: "Service Desk 2013"
   messages:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
-    forgot_password: "¿Olvidaste tu Contraseña?"
-    not_blank: "no debe estar en blanco"
+    forgot_password: "¿Olvidó su Contraseña?"
+    not_blank: "no puede estar en blanco"
   menus:
     users: "Usuarios"
   actions:
@@ -34,12 +44,13 @@ es:
         user:
           attributes:
             email:
-              blank: "no debe estar en blanco"
+              blank: "no puede estar en blanco"
               invalid: "no es válido"
             password:
-              blank: "no debe estar en blanco"
+              blank: "no puede estar en blanco"
     models:
       user: "User"
+      incident: "Incidente"
     attributes:
       user:
         email: "Email"
@@ -48,6 +59,9 @@ es:
         lastname: "Apellidos"
         remember_me: "Recordarme"
         password: "Contraseña"
+      incident:
+        title: "Titulo"
+        description: "Descripción"
   incidents:
     actions:
       new: "Nuevo Incidente"
@@ -55,3 +69,7 @@ es:
     actions:
       new: "Nuevo Usuario"
       edit: "Editar Usuario"
+  incidents:
+    actions:
+      new: "Nuevo Incidente"
+      edit: "Editar Incidente"
