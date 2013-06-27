@@ -1,4 +1,4 @@
 class IncidentCategory < ActiveRecord::Base
-	belongs_to :category_id
-	belongs_to :incident_id
+	belongs_to :category
+	belongs_to :incident
 end

@@ -1,27 +1,35 @@
-<h1>Listing categories</h1>
+<h1><%= t('titles.categories')%></h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped">
+    <thead>
+        <th><%=t('activerecord.attributes.category.name')%></th>
+        <th><%=t('activerecord.attributes.category.description')%></th>
+        <th><%=t('titles.actions')%></th>
+    </thead>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.description %></td>
-    <td><%= category.user_id %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+    <tbody>
+        <% @categories.each do |category| %>
+        <tr>
+            <td><%= category.name %></td>
+            <td><%= category.description %></td>
+            <td>
+                <%= link_to category do %>
+                    <i class='icon-eye-open'></i>
+                <% end %>
+
+                <%= link_to edit_category_path(category) do %>
+                    <i class='icon-pencil'></i>
+                <% end %>
+
+                <%= link_to category, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
+                    <i class='icon-trash'></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to t('categories.actions.new'), new_category_path %>

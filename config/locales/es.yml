@@ -27,6 +27,7 @@ es:
     actions: "Acciones"
     incidents: "Incidentes"
     users: "Usuarios"
+    categories: "Categorías"
     footer: "Service Desk 2013"
   messages:
     are_you_sure: "¿Esta seguro?"
@@ -70,6 +71,10 @@ es:
         description: "Descripción"
         contact_method_id: "Método de contacto"
         possible_solution: "Posible solución"
+      category:
+        name: "Nombre"
+        description: "Descripción"
+        user_id: "Creador"
   incidents:
     actions:
       new: "Nuevo Incidente"
@@ -81,3 +86,7 @@ es:
     actions:
       new: "Nuevo Incidente"
       edit: "Editar Incidente"
+  categories:
+    actions:
+      new: "Nueva Categoría"
+      edit: "Editar Categoría"

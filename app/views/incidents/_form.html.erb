@@ -4,6 +4,7 @@
   	<div class="form-inputs">
     	<%= f.input :title %>
     	<%= f.input :description %>
+      <%= f.association :categories, input_html: {class: "chosen"}%>
       <%= f.input :contact_method_id, collection: ContactMethod::CONTACTS.map{|s| [s[:name], s[:id]]}, prompt: t('messages.select_an_option')%>
       <%= f.input :possible_solution, :as => :text, :input_html => {:rows => 5}%>
   	</div>

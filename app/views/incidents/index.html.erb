@@ -7,25 +7,27 @@
         <th><%=t('titles.actions')%></th>
     </thead>
 
-    <% @incidents.each do |incident| %>
-    <tr>
-        <td><%= incident.title %></td>
-        <td><%= incident.description %></td>
-        <td>
-            <%= link_to incident do %>
-                <i class='icon-eye-open'></i>
-            <% end %>
+    <tbody>
+        <% @incidents.each do |incident| %>
+        <tr>
+            <td><%= incident.title %></td>
+            <td><%= incident.description %></td>
+            <td>
+                <%= link_to incident do %>
+                    <i class='icon-eye-open'></i>
+                <% end %>
 
-            <%= link_to edit_incident_path(incident) do %>
-                <i class='icon-pencil'></i>
-            <% end %>
+                <%= link_to edit_incident_path(incident) do %>
+                    <i class='icon-pencil'></i>
+                <% end %>
 
-            <%= link_to incident, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
-                <i class='icon-trash'></i>
-            <% end %>
-        </td>
-    </tr>
-<% end %>
+                <%= link_to incident, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
+                    <i class='icon-trash'></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br />

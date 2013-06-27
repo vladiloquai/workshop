@@ -8,11 +8,10 @@ class Ability
 
       # Client Role
       if user.role? :client
-        can :manage, :all
-
+        
       # Analyst Role
       elsif user.role? :analyst
-        can :manage, :all
+        can :manage, :categories
 
       # Administrator Role
       elsif user.role? :admin

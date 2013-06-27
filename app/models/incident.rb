@@ -2,11 +2,13 @@ class Incident < ActiveRecord::Base
   attr_accessible :description, 
 				 					:title,  
 				 					:possible_solution, 
-				 					:contact_method_id
+				 					:contact_method_id,
+                  :category_ids
 
   validates_presence_of :title, 
   											:description, 
   											:contact_method_id,
+                        :category_ids,
   											message: I18n.t('messages.not_blank')
 
   # Users
