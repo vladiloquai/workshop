@@ -46,30 +46,49 @@
                 </a>
                 <a class="brand" href="<%= root_path%>"><%=t('titles.app')%></a>
                 <div class="container nav-collapse">
-                    <ul class="nav">
-                        <% if user_signed_in? %>
-                            <li class="divider-vertical"></li>
-                            <li><%= link_to t('titles.incidents'), incidents_path%></li>
-                            <li class="divider-vertical"></li>
-                            <%if can? :manage, Category%>
-                                <li><%= link_to t('titles.categories'), categories_path%></li>
-                            <%end%>
-                            <li class="divider-vertical"></li>
-                            <li><%= link_to t('titles.users'), users_path%></li>
-                            <li class="divider-vertical"></li>
-                        <%end%>
-                    </ul>
                     <ul class="nav pull-right">
                         <% if user_signed_in? %>
+                            <!-- Incidents Menu -->
+                            <li class="divider-vertical"></li>
                             <li>
-                                <%= link_to current_user  do%>
-                                    <i class="icon icon-user"></i>
-                                    <%= current_user.name%>
+                                <%= link_to incidents_path  do%>
+                                    <i class="icon icon-flag-checkered"></i>
+                                    <%=t('titles.incidents')%>
                                 <% end %>
                             </li>
+
+
+                            <!-- Categories Menu -->
                             <li class="divider-vertical"></li>
-                            <li><%= link_to t('actions.sign_out'), destroy_user_session_path, method: :delete %></li>
+                            <%if can? :manage, Category%>
+                                <li>
+                                    <%= link_to categories_path  do%>
+                                        <i class="icon icon-folder-open"></i>
+                                        <%=t('titles.categories')%>
+                                    <% end %>
+                                </li>
+                            <%end%>
+
+
+                            <!-- Users Menu -->
+                            <li class="divider-vertical"></li>
+                            <li>
+                                <%= link_to users_path  do%>
+                                    <i class="icon icon-group"></i>
+                                    <%=t('titles.users')%>
+                                <% end %>
+                            </li>
+
+                            <!-- Mi Acount Menu -->
+                            <li class="divider-vertical"></li>
+                            <li>
+                                <%= link_to current_user  do%>
+                                    <i class="icon icon-lock"></i>
+                                    <%=t('titles.my_account')%>
+                                <% end %>
+                            </li>
                         <% end %>
+
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

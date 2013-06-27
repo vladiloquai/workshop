@@ -29,6 +29,7 @@ es:
     users: "Usuarios"
     categories: "Categorías"
     solutions: "Soluciones"
+    my_account: "Mi Cuenta"
     footer: "Service Desk 2013"
   messages:
     are_you_sure: "¿Esta seguro?"
