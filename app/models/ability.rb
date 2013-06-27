@@ -11,7 +11,8 @@ class Ability
         
       # Analyst Role
       elsif user.role? :analyst
-        can :manage, :categories
+        can :manage, Category
+        can :manage, Solution
 
       # Administrator Role
       elsif user.role? :admin

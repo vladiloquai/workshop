@@ -1,0 +1,37 @@
+<h1><%= t('titles.solutions')%></h1>
+
+<table class="table table-striped">
+    <thead>
+        <th><%=t('activerecord.attributes.solution.name')%></th>
+        <th><%=t('activerecord.attributes.solution.description')%></th>
+        <th><%=t('activerecord.attributes.solution.user_id')%></th>
+        <th><%=t('titles.actions')%></th>
+    </thead>
+
+    <tbody>
+        <% @solutions.each do |solution| %>
+        <tr>
+            <td><%= solution.name %></td>
+            <td><%= solution.description %></td>
+            <td><%= solution.user.name %></td>
+            <td>
+                <%= link_to solution do %>
+                    <i class='icon-eye-open'></i>
+                <% end %>
+
+                <%= link_to edit_solution_path(solution) do %>
+                    <i class='icon-pencil'></i>
+                <% end %>
+
+                <%= link_to solution, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
+                    <i class='icon-trash'></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to t('solutions.actions.new'), new_solution_path %>

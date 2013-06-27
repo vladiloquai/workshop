@@ -1,4 +1,7 @@
 Workshop::Application.routes.draw do
+  resources :solutions
+
+
   resources :categories
 
 
