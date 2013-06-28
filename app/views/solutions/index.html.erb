@@ -13,7 +13,7 @@
         <tr>
             <td><%= solution.name %></td>
             <td><%= solution.description %></td>
-            <td><%= solution.user.name %></td>
+            <td><%= solution.user.blank? ? "" : solution.user.name %></td>
             <td>
                 <%= link_to solution do %>
                     <i class='icon-eye-open'></i>

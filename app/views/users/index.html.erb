@@ -1,27 +1,39 @@
 <h1><%= t('titles.users')%></h1>
 
 <table class="table table-striped">
-  <tr>
-    <th><%= t('activerecord.attributes.user.name')%></th>
-    <th><%= t('activerecord.attributes.user.lastname')%></th>
-    <th><%= t('activerecord.attributes.user.email')%></th>
-    <th><%= t('activerecord.attributes.user.role')%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <thead>
+        <th><%= t('activerecord.attributes.user.name')%></th>
+        <th><%= t('activerecord.attributes.user.lastname')%></th>
+        <th><%= t('activerecord.attributes.user.email')%></th>
+        <th><%= t('activerecord.attributes.user.role')%></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.lastname %></td>
-    <td><%= user.email %></td>
-    <td><%= user.role %></td>
-    <td><%= link_to t('actions.show'), user %></td>
-    <td><%= link_to t('actions.edit'), edit_user_path(user) %></td>
-    <td><%= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('messages.are_you_sure')} %></td>
-  </tr>
-<% end %>
+    <% @users.each do |user| %>
+    <tbody>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td>    
+                <%= link_to user do %>
+                    <i class='icon-eye-open'></i>
+                <% end %>
+
+                <%= link_to edit_user_path(user) do %>
+                    <i class='icon-pencil'></i>
+                <% end %>
+
+                <%= link_to user, method: :delete, data: { confirm: t('messages.are_you_sure') } do %>
+                    <i class='icon-trash'></i>
+                <% end %>
+            </td>
+        </tr>
+    </tbody>
+    <% end %>
 </table>
 
 <br />
