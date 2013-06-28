@@ -69,10 +69,13 @@ es:
         remember_me: "Recordarme"
         password: "Contraseña"
       incident:
+        id: "Id"
         title: "Titulo"
         description: "Descripción"
         contact_method_id: "Método de contacto"
         possible_solution: "Posible solución"
+        categories: "Categorías"
+        created_at: "Fecha Creación"
       category:
         name: "Nombre"
         description: "Descripción"

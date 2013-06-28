@@ -2,17 +2,21 @@
 
 <table class="table table-striped">
     <thead>
+        <th><%=t('activerecord.attributes.incident.id')%></th>
         <th><%=t('activerecord.attributes.incident.title')%></th>
-        <th><%=t('activerecord.attributes.incident.description')%></th>
+        <th><%=t('activerecord.attributes.incident.categories')%></th>
+        <th><%=t('activerecord.attributes.incident.created_at')%></th>
         <th><%=t('titles.actions')%></th>
     </thead>
 
     <tbody>
         <% @incidents.each do |incident| %>
         <tr>
+            <td><%= incident.id %></td>
             <td><%= incident.title %></td>
-            <td><%= incident.description %></td>
-            <td>
+            <td><%= !incident.categories.blank? ? "#{incident.categories.first.name}" : ""%></td>
+            <td><%= l(incident.created_at, :format => :long_ordinal)%></td>
+            <td>    
                 <%= link_to incident do %>
                     <i class='icon-eye-open'></i>
                 <% end %>
