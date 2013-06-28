@@ -18,4 +18,8 @@ class Incident < ActiveRecord::Base
   # Categories
   has_many :incident_categories
   has_many :categories, through: :incident_categories
+
+  # Solutions
+  has_many :incident_solutions
+  has_many :solutions, through: :incident_solutions
 end
