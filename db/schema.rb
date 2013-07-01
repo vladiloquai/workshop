@@ -62,14 +62,12 @@ ActiveRecord::Schema.define(:version => 20130628042640) do
 
   create_table "incidents", :force => true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.datetime "closed_at"
     t.integer  "status_id"
     t.integer  "contact_method_id"
-    t.integer  "category_id"
-    t.integer  "solution_id"
     t.integer  "impact_id"
     t.integer  "urgency_id"
     t.text     "possible_solution"

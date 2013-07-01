@@ -31,6 +31,9 @@ es:
     solutions: "Soluciones"
     my_account: "Mi Cuenta"
     footer: "Service Desk 2013"
+  labels:
+    incidents:
+      requester: "Solicitante"
   messages:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
@@ -50,6 +53,10 @@ es:
   activerecord:
     errors:
       models:
+        incident_user:
+          attributes:
+            user_id:
+              blank: "no puede estar en blanco"
         user:
           attributes:
             email:

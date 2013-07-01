@@ -45,4 +45,8 @@ class User < ActiveRecord::Base
       false
     end
   end
+
+  def fullname 
+    self.name.to_s + " " + self.lastname.to_s
+  end
 end

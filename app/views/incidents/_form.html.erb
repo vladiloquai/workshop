@@ -1,17 +1,20 @@
-<%= simple_form_for(@incident, url: create_incidents_path, method: :post, html: {class: "form-horizontal well"}) do |f| %>
+<%= simple_form_for(@incident, html: {class: "form-horizontal well"}) do |f| %>
   	<%= f.error_notification %>
 
   	<div class="form-inputs">
+        <% f.object.incident_users.build if action_name == "new"%>
+        <%= f.simple_fields_for :incident_users do |iu| %>
+            <%= iu.input :user_id, label: t('labels.incidents.requester'), collection: User.where(role: ["analyst", "client"]).order("lastname ASC").map{|u| [u.fullname, u.id]}, prompt: t('messages.select_an_option')%>
+        <% end %>
     	<%= f.input :title %>
-    	<%= f.input :description %>
-      <%= f.association :categories, input_html: {class: "chosen"}%>
-      <%= f.input :contact_method_id, collection: ContactMethod::CONTACTS.map{|s| [s[:name], s[:id]]}, prompt: t('messages.select_an_option')%>
-      <%= f.input :possible_solution, :as => :text, :input_html => {:rows => 5}%>
+    	<%= f.input :description, :as => :text, :input_html => {:rows => 5} %>
+        <%= f.association :categories, input_html: {class: "chosen"}%>
+        <%= f.input :contact_method_id, collection: ContactMethod::CONTACTS.map{|s| [s[:name], s[:id]]}, prompt: t('messages.select_an_option')%>
+        <%= f.input :possible_solution, :as => :text, :input_html => {:rows => 5}%>
   	</div>
 
   	<div class="form-actions">
-       <%= f.button    :submit, 
-                        (action_name == 'new' || action_name == 'create') ? t('actions.new') : t('actions.edit'),
-                        class: "btn btn-info"%>     
+        <%= f.button    :submit, 
+                        (action_name == 'new' || action_name == 'create') ? t('actions.new') : t('actions.edit'), class: "btn btn-info"%>     
     </div>
 <% end %>

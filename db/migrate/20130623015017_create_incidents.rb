@@ -2,7 +2,7 @@ class CreateIncidents < ActiveRecord::Migration
   def change
     create_table :incidents do |t|
       t.string :title
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
