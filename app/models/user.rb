@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
       /incidents
   ]
 
+  # Returns the user role
   def role? _role 
     if self.role
       self.role.to_sym == _role
@@ -46,7 +47,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Builds full name
   def fullname 
     self.name.to_s + " " + self.lastname.to_s
+  end
+
+  # Returns text before @ of attribute email
+  def user_name
+    email.split("@").first
   end
 end

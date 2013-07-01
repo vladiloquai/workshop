@@ -34,6 +34,7 @@ es:
   labels:
     incidents:
       requester: "Solicitante"
+      creator: "Creador"
   messages:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
