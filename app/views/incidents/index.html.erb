@@ -19,7 +19,6 @@
             <td><%= incident.title %></td>
             <td><%= incident.requester.user_name %></td>
             <td><%= incident.creator.user_name %></td>
-            <td><%= !incident.categories.blank? ? "#{incident.categories.first.name}" : ""%></td>
             <td><%= l(incident.created_at, :format => :long_ordinal)%></td>
             <td>    
                 <%= link_to incident do %>
