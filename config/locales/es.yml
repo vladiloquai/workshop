@@ -35,6 +35,7 @@ es:
     incidents:
       requester: "Solicitante"
       creator: "Creador"
+      assigned: "Asignado"
   messages:
     are_you_sure: "¿Esta seguro?"
     invalid: "no es valido"
@@ -78,7 +79,7 @@ es:
         password: "Contraseña"
       incident:
         id: "Id"
-        title: "Titulo"
+        title: "Título"
         description: "Descripción"
         contact_method_id: "Método de contacto"
         possible_solution: "Posible solución"

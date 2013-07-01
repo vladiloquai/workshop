@@ -15,7 +15,7 @@
     <tbody>
         <% @incidents.each do |incident| %>
         <tr>
-            <td><%= incident.id %></td>
+            <td><b><%= link_to incident.id, incident_path(incident)%></b></td>
             <td><%= incident.title %></td>
             <td><%= incident.requester.user_name %></td>
             <td><%= incident.creator.user_name %></td>

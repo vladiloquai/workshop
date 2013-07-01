@@ -1,15 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @incident.title %>
-</p>
+<h2><%= "#{t('activerecord.models.incident')}: #{@incident.id}"%></h2>
+<table class="table striped-table">
+    <tbody>
+        <tr>
+            <th style="width:200px;"><%=t('activerecord.attributes.incident.title')%></th>
+            <td><%= @incident.title %></td>
+        </tr>
 
-<p>
-  <b>Description:</b>
-  <%= @incident.description %>
-</p>
+        <tr>
+            <th><%=t('activerecord.attributes.incident.description')%></th>
+            <td><%= @incident.description %></td>
+        </tr>
 
+        <tr>
+            <th><%=t('activerecord.attributes.incident.status')%></th>
+            <td></td>
+        </tr>
 
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
+        <tr>
+            <th><%=t('labels.incidents.assigned')%></th>
+            <td></td>
+        </tr>
+
+        <tr>
+            <th><%=t('labels.incidents.requester')%></th>
+            <td><%= @incident.requester.user_name %></td>
+        </tr>
+
+        <tr>
+            <th><%=t('labels.incidents.creator')%></th>
+            <td><%= @incident.creator.user_name %></td>
+        </tr>
+
+        <tr>
+            <th><%=t('activerecord.attributes.incident.created_at')%></th>
+            <td><%= l(@incident.created_at, :format => :long_ordinal)%></td>
+        </tr>
+    </tbody>
+</table>
+
+<%= link_to t('actions.edit'), edit_incident_path(@incident) %> |
+<%= link_to t('actions.back'), incidents_path %>

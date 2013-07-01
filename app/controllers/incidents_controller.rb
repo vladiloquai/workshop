@@ -1,7 +1,7 @@
 class IncidentsController < ApplicationController
   authorize_resource
   def index
-    @incidents = Incident.all
+    @incidents = Incident.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
