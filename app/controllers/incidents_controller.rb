@@ -10,7 +10,10 @@ class IncidentsController < ApplicationController
   end
 
   def show
-    @incident = Incident.find(params[:id])
+    @incident  = Incident.find(params[:id])
+    @assigned  = @incident.assigned
+    @requester = @incident.requester
+    @creator   = @incident.creator
 
     respond_to do |format|
       format.html # show.html.erb

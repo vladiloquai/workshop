@@ -5,6 +5,7 @@ class Incident < ActiveRecord::Base
 				 					:possible_solution, 
 				 					:contact_method_id,
                   :category_ids,
+                  :status_id,
                   :incident_users_attributes
 
   # Validations
@@ -13,6 +14,9 @@ class Incident < ActiveRecord::Base
   											:contact_method_id,
                         :category_ids,
   											message: I18n.t('messages.not_blank')
+
+  # Associations
+  belongs_to :incident_status
 
   # Users
   has_many :incident_users
@@ -30,6 +34,11 @@ class Incident < ActiveRecord::Base
   before_save :set_requester
 
   accepts_nested_attributes_for :incident_users
+
+  #============================ STATUSES LOGIC================================#
+  def set_status status
+    self.incident_status= IncidentStatus.where(name: status).first
+  end
 
   #============================USER TYPE LOGIC================================#
 

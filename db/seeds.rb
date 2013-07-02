@@ -41,3 +41,9 @@ solutions = Solution.create([{name: "Solución 1", description: "Consiste en la 
 
 categories = Category.create([{name: "Catergoría 1", description: "Consiste en la primera categoría"},
 														  {name: "Catergoría 2", description: "Consiste en la segunda categoría"}])
+
+incident_statuses = IncidentStatus.create([	{id: 1, name: "created"},
+														  							{id: 2, name: "assigned"},
+														  							{id: 3, name: "processing"},
+														  							{id: 4, name: "closed"},
+														  							{id: 5, name: "reopen"}])

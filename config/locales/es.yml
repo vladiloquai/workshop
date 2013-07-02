@@ -85,6 +85,7 @@ es:
         possible_solution: "Posible solución"
         categories: "Categorías"
         created_at: "Fecha Creación"
+        status_id: "Estado"
       category:
         name: "Nombre"
         description: "Descripción"

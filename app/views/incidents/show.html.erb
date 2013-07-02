@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2><%= "#{t('activerecord.models.incident')}: #{@incident.id}"%></h2>
 <table class="table table-striped">
     <tbody>
@@ -14,23 +12,23 @@
         </tr>
 
         <tr>
-            <th><%=t('activerecord.attributes.incident.status')%></th>
-            <td></td>
+            <th><%=t('activerecord.attributes.incident.status_id')%></th>
+            <td><%= @incident.incident_status.name %></td>
         </tr>
 
         <tr>
             <th><%=t('labels.incidents.assigned')%></th>
-            <td></td>
+            <td><%=@assigned.blank? ? "" : "#{@assigned.fullname} (#{@assigned.user_name})"%></td>
         </tr>
 
         <tr>
             <th><%=t('labels.incidents.requester')%></th>
-            <td><%= @incident.requester.user_name %></td>
+            <td><%=@requester.blank? ? "" : "#{@requester.fullname} (#{@requester.user_name})"%></td>
         </tr>
 
         <tr>
             <th><%=t('labels.incidents.creator')%></th>
-            <td><%= @incident.creator.user_name %></td>
+            <td><%=@creator.blank? ? "" : "#{@creator.fullname} (#{@creator.user_name})"%></td>
         </tr>
 
         <tr>
