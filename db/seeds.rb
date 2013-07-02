@@ -47,3 +47,6 @@ incident_statuses = IncidentStatus.create([	{id: 1, name: "created"},
 														  							{id: 3, name: "processing"},
 														  							{id: 4, name: "closed"},
 														  							{id: 5, name: "reopen"}])
+
+analyst_statuses = AnalystStatus.create([	{id: 1, name: "available"},
+														  						{id: 2, name: "not available"}])

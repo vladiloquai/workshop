@@ -44,7 +44,7 @@ class SolutionsController < ApplicationController
 
     respond_to do |format|
       if @solution.save
-        format.html { redirect_to @solution, notice: 'Solution was successfully created.' }
+        format.html { redirect_to @solution, notice: t('solutions.messages.successfull_created') }
         format.json { render json: @solution, status: :created, location: @solution }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SolutionsController < ApplicationController
 
     respond_to do |format|
       if @solution.update_attributes(params[:solution])
-        format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
+        format.html { redirect_to @solution, notice: t('solutions.messages.successfull_updated') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

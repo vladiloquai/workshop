@@ -40,7 +40,7 @@ class IncidentsController < ApplicationController
     respond_to do |format|
       if @incident.save
         @incident.set_creator current_user
-        format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
+        format.html { redirect_to @incident, notice: t('incidents.messages.successfull_created') }
         format.json { render json: @incident, status: :created, location: @incident }
       else
         format.html { render action: "new" }
@@ -54,7 +54,7 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
-        format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
+        format.html { redirect_to @incident, notice: t('incidents.messages.successfull_updated') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

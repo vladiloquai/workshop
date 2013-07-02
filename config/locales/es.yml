@@ -95,21 +95,30 @@ es:
         description: "Descripción"
         user_id: "Creador"
   incidents:
+    messages: 
+      successfull_created: "Incidente creado exitosamente"
+      successfull_updated: "Incidente actualizado exitosamente"
     actions:
       new: "Nuevo Incidente"
+      edit: "Editar Incidente"
   users:
     actions:
       new: "Nuevo Usuario"
       edit: "Editar Usuario"
-  incidents:
-    actions:
-      new: "Nuevo Incidente"
-      edit: "Editar Incidente"
+    messages: 
+      successfull_created: "Usuario creado exitosamente"
+      successfull_updated: "Usuario actualizado exitosamente"
   categories:
     actions:
       new: "Nueva Categoría"
       edit: "Editar Categoría"
+    messages: 
+      successfull_created: "Categoría creada exitosamente"
+      successfull_updated: "Categoría actualizada exitosamente"
   solutions:
     actions:
       new: "Nueva Solución"
       edit: "Editar Solución"
+    messages: 
+      successfull_created: "Solución creada exitosamente"
+      successfull_updated: "Solución actualizada exitosamente"
