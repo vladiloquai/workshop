@@ -30,12 +30,6 @@ users = User.create([{name:                  'Administrator',
 	      							password_confirmation: 'cliente123',
 	      							role:                  'client'}])
 
-user_types = UserType.create([{id: 1, code: "c", description: "Creator"},
-															{id: 2, code: "r", description: "Requester"},
-															{id: 3, code: "aa", description: "Assigned Analyst"},
-															{id: 4, code: "ia", description: "Incident Analyst"},
-															{id: 5, code: "f", description: "Finisher"}])
-
 solutions = Solution.create([{name: "Solución 1", description: "Consiste en la solución1"},
 														 {name: "Solución 1", description: "Consiste en la solución2"}])
 

@@ -88,6 +88,7 @@ es:
         categories: "Categorías"
         created_at: "Fecha Creación"
         status_id: "Estado"
+        requester_id: "Solicitante"
       category:
         name: "Nombre"
         description: "Descripción"

@@ -60,16 +60,10 @@ ActiveRecord::Schema.define(:version => 20130702131531) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "incident_user_types", :force => true do |t|
-    t.integer  "user_type_id"
-    t.integer  "incident_user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
   create_table "incident_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "incident_id"
+    t.datetime "issue_date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -81,6 +75,10 @@ ActiveRecord::Schema.define(:version => 20130702131531) do
     t.datetime "updated_at",                        :null => false
     t.datetime "closed_at"
     t.integer  "incident_status_id", :default => 1, :null => false
+    t.integer  "creator_id"
+    t.integer  "assigned_id"
+    t.integer  "requester_id"
+    t.integer  "finisher_id"
     t.integer  "contact_method_id"
     t.integer  "impact_id"
     t.integer  "urgency_id"
@@ -91,13 +89,6 @@ ActiveRecord::Schema.define(:version => 20130702131531) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "user_types", :force => true do |t|
-    t.string   "code"
-    t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

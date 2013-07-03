@@ -6,7 +6,11 @@ class Incident < ActiveRecord::Base
 				 					:contact_method_id,
                   :category_ids,
                   :status_id,
-                  :incident_users_attributes
+                  :incident_users_attributes,
+                  :creator_id,
+                  :requester_id,
+                  :finisher_id,
+                  :assigned_id
 
   # Validations
   validates_presence_of :title, 
@@ -17,6 +21,10 @@ class Incident < ActiveRecord::Base
 
   # Associations
   belongs_to :incident_status
+  belongs_to :creator, foreign_key: :creator_id, class_name: "User"
+  belongs_to :requester, foreign_key: :requester_id, class_name: "User"
+  belongs_to :finisher, foreign_key: :finisher_id, class_name: "User"
+  belongs_to :assigned, foreign_key: :assigned_id, class_name: "User"
 
   # Users
   has_many :incident_users
@@ -29,9 +37,6 @@ class Incident < ActiveRecord::Base
   # Solutions
   has_many :incident_solutions
   has_many :solutions, through: :incident_solutions
-
-  # Callbacks
-  before_save :set_requester
 
   accepts_nested_attributes_for :incident_users
 
@@ -47,51 +52,8 @@ class Incident < ActiveRecord::Base
     !incident_users.where(user_id: user.id).blank?
   end
 
-  # Get incident creator
-  def creator
-    iu= incident_users.select{|iu| iu.is_creator?}.first
-    iu.blank? ? iu : iu.user
-  end
-
-  # Get incident assigned
-  def assigned 
-    iu= incident_users.select{|iu| iu.is_assigned?}.first
-    iu.blank? ? iu : iu.user
-  end
-
-  # Get incident analyst
-  def analyst 
-    iu= incident_users.select{|iu| iu.is_analyst?}.first
-    iu.blank? ? iu : iu.user
-  end
-
-  # Get incident requester
-  def requester 
-    iu= incident_users.select{|iu| iu.is_requester?}.first
-    iu.blank? ? iu : iu.user
-  end
-
-  # Get incident finisher
-  def finisher 
-    iu= incident_users.select{|iu| iu.is_finisher?}.first
-    iu.blank? ? iu : iu.user
-  end
-
-  # Set incident requester. (This must be the first before_save callback)
-  def set_requester
-    incident_users.first.user_types << UserType.where(code: "r").first
-  end
-
-  # Set incident creator. Is called from controller
   def set_creator user
-    # Validates if user is already in this incident
-    iu = nil
-    if has_user?(user)
-      iu= incident_users.where({incident_id: self.id, user_id: user.id}).first
-    else
-      iu= IncidentUser.create({incident_id: self.id, user_id: user.id})
-      incident_users << iu
-    end
-    iu.user_types << UserType.where(code: "c").first
+    self.creator= user
+    self.save
   end
 end
