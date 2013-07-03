@@ -1,40 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @user.fullname%></h2>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <th style="width:200px;"><%=t('labels.users.user_name')%></th>
+            <td><%= @user.user_name %></td>
+        </tr>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+        <tr>
+            <th><%=t('activerecord.attributes.user.email')%></th>
+            <td><%= @user.email %></td>
+        </tr>
 
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
+        <tr>
+            <th><%=t('activerecord.attributes.user.role')%></th>
+            <td><%= @user.role %></td>
+        </tr>
+    </tbody>
+</table>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Role:</b>
-  <%= @user.role %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @user.client_id %>
-</p>
-
-<p>
-  <b>Analyst:</b>
-  <%= @user.analyst_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to t('actions.edit'), edit_user_path(@user) %> |
+<%= link_to t('actions.back'), users_path %>
