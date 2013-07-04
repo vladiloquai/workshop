@@ -8,6 +8,7 @@ es:
         signed_in: "Bienvenido a Mesa de Servicios"
         signed_out: "Sesión Finalizada"
     failure:
+      already_authenticated: "No autorizado para acceder a este recurso"
       user:
         not_found_in_database: "Usuario no encontrado"
         invalid: "Contraseña erronea"

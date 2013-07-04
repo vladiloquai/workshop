@@ -1,7 +1,7 @@
 class IncidentsController < ApplicationController
-  authorize_resource
+  load_and_authorize_resource
   def index
-    @incidents = Incident.order("created_at DESC")
+    @incidents = Incident.get_collection current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +40,7 @@ class IncidentsController < ApplicationController
     respond_to do |format|
       if @incident.save
         @incident.set_creator current_user
+        
         format.html { redirect_to @incident, notice: t('incidents.messages.successfull_created') }
         format.json { render json: @incident, status: :created, location: @incident }
       else

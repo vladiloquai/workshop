@@ -43,6 +43,7 @@ class Incident < ActiveRecord::Base
   #============================ STATUSES LOGIC================================#
   def set_status status
     self.incident_status= IncidentStatus.where(name: status).first
+    self.save
   end
 
   #============================USER TYPE LOGIC================================#
@@ -56,4 +57,26 @@ class Incident < ActiveRecord::Base
     self.creator= user
     self.save
   end
+
+  def assign_analyst
+    
+  end
+
+  #============================COLLECTIONS LOGIC==============================#
+
+  def self.get_collection user
+    # Client Collection
+    if user.role? :client
+      Incident.where("requester_id = ? OR creator_id = ?", user.id, user.id).order("created_at DESC")
+
+    # Analyst Collection
+    elsif user.role? :analyst
+      Incident.where("requester_id = ? OR creator_id = ? OR assigned_id = ?", user.id, user.id, user.id).order("created_at DESC")
+
+    # Admin Collection
+    elsif user.role?   :admin
+      Incident.order("created_at DESC")
+    end
+  end
+
 end

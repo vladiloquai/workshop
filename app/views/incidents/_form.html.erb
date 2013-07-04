@@ -2,7 +2,13 @@
   	<%= f.error_notification %>
 
   	<div class="form-inputs">
-        <%= f.input :requester_id, collection: User.where(role: ["analyst", "client"]).order("lastname ASC").map{|u| [u.fullname, u.id]}, prompt: t('messages.select_an_option')%>
+
+        <%if can? :manage, Incident%>
+            <%= f.input :requester_id, collection: User.where(role: ["analyst", "client"]).order("lastname ASC").map{|u| [u.fullname, u.id]}, prompt: t('messages.select_an_option')%>
+        <% else %>
+            <%=f.input :requester_id, :as => :hidden, :input_html => { :value => current_user.id }%>
+        <% end %>
+
     	<%= f.input :title %>
     	<%= f.input :description, :as => :text, :input_html => {:rows => 5} %>
         <%= f.association :categories, input_html: {class: "chosen"}%>
